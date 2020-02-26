@@ -1,0 +1,19 @@
+parameters:
+  - name: workingDirectory
+    type: string
+    default: "/"
+  - name: nodeVersion
+    type: string
+    default: "10.x"
+
+steps:
+  - task: NodeTool@0
+    displayName: "Install Node"
+    inputs:
+      versionSpec: "${{ parameters.nodeVersion }}"
+  - task: Bash@3
+    inputs:
+      targetType: inline
+      workingDirectory: ${{ parameters.workingDirectory }}
+      script: |
+        npm test
