@@ -19,7 +19,7 @@ stages:
           - template: zip-and-publish-s3/zip-and-publish-s3.yaml@azuredevops-templates
             parameters:
               sourcePath: zip-and-publish-s3/example/files
-              archiveFileName: example.zip
+              archiveFileName: $(Build.BuildNumber)-example.zip
               awsCredentialName: aws-account
               s3BucketName: jef-azure-devops-test
               s3BucketPath: zip-and-publish-s3/
