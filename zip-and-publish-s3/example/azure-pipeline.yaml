@@ -4,8 +4,8 @@ resources:
   repositories:
     - repository: azuredevops-templates
       type: github
-      name: "yardbirdsax/azuredevopstemplates"
-      ref: "refs/branch/feature/zip-and-publish-s3"
+      name: "yardbirdsax/azuredevops-templates"
+      ref: "refs/branches/feature/zip-and-publish-s3"
       endpoint: yardbirdsax
 stages:
   - stage: ZipAndPublish
