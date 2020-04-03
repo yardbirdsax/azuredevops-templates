@@ -18,15 +18,15 @@ steps:
   - task: ArchiveFiles@1
     displayName: Zip Files
     inputs:
-      rootFolder: $(sourcePath)
-      archiveFile: $(archiveFileName)
+      rootFolder: ${{ parameters.sourcePath }}
+      archiveFile: ${{ parameters.archiveFileName }}
       archiveType: zip
   - task: AWSCLI@1
-    displayName: 'Copy file to $(s3BucketName) S3 bucket'
+    displayName: 'Copy file to ${{ parameters.s3BucketName }} S3 bucket'
     inputs:
-      awsCredentials: $(awsCredentialName)
-      regionName: $(awsRegionName)
+      awsCredentials: ${{ parameters.awsCredentialName }}
+      regionName: ${{ parameters.awsRegionName }}
       awsCommand: s3
       awsSubCommand: cp
-      awsArguments: '$(archiveFileName) s3://$(s3BucketName)/$(s3BucketPath)$(archiveFileName)'
+      awsArguments: '${{ parameters.archiveFileName }} s3://${{ parameters.s3BucketName }}/${{ parameters.s3BucketPath }}${{ parameters.archiveFileName }}'
       failOnStandardError: false
