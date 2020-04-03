@@ -6,7 +6,7 @@ resources:
       type: github
       name: "yardbirdsax/azuredevops-templates"
       ref: "refs/heads/feature/zip-and-publish-s3"
-      endpoint: yardbirdsax
+      endpoint: github.com_yardbirdsax
 stages:
   - stage: ZipAndPublish
     displayName: Zip and Publish Sample Files
