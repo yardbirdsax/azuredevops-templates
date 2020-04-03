@@ -1,0 +1,32 @@
+parameters:
+  - name: sourcePath
+    type: string
+    default: "./"
+  - name: archiveFileName
+    type: string
+  - name: awsCredentialName
+    type: string
+  - name: awsRegionName
+    type: string
+    default: us-east-2
+  - name: s3BucketName
+    type: string
+  - name: s3BucketPath
+    type: string
+    default: ""
+steps:
+  - task: ArchiveFiles@1
+    displayName: Zip Files
+    inputs:
+      rootFolder: $(sourcePath)
+      archiveFile: $(archiveFileName)
+      archiveType: zip
+  - task: AWSCLI@1
+    displayName: 'Copy file to $(s3BucketName) S3 bucket'
+    inputs:
+      awsCredentials: $(awsCredentialName)
+      regionName: $(awsRegionName)
+      awsCommand: s3
+      awsSubCommand: cp
+      awsArguments: '$(archiveFileName) s3://$(s3BucketName)/$(s3BucketPath)$(archiveFileName)'
+      failOnStandardError: false
