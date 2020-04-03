@@ -1,3 +1,4 @@
+name: Zip-And-Publish-S3
 trigger: none
 resources:
   repositories:
