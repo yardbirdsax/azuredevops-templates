@@ -1,0 +1,31 @@
+parameters:
+  - name: sourcePath
+    type: string
+    default: "./"
+  - name: archiveFileName
+    type: string
+  - name: azureConnectionName
+    type: string
+  - name: storageAccountName
+    type: string
+  - name: storageAccountContainerName
+    type: string
+  - name: storageAccountPath
+    type: string
+    default: ""
+steps:
+  - task: ArchiveFiles@1
+    displayName: Zip Files
+    inputs:
+      rootFolder: ${{ parameters.sourcePath }}
+      archiveFile: ${{ parameters.archiveFileName }}
+      archiveType: zip
+  - task: AzureFileCopy@4
+    displayName: 'Copy file to ${{ parameters.storageAccountName }} Blob Storage'
+    inputs:
+      sourcePath: ${{ parameters.sourcePath }}
+      azureSubscription: ${{ parameters.azureConnectionName }}
+      destination: azureBlob
+      storage: ${{ parameters.storageAccountName }}
+      containerName: ${{ parameters.storageAccountContainerName }}
+      blobPrefix: ${{ parameters.storageAccountPath }}
