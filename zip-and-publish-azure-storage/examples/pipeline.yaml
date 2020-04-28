@@ -15,7 +15,7 @@ resources:
       endpoint: github.com_yardbirdsax
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'windows-2019'
 
 steps:
   - template: zip-and-publish-azure-storage/zip-and-publish-azure-storage.yaml@azuredevops-templates
