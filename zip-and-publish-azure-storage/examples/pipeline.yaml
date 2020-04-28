@@ -1,0 +1,27 @@
+trigger:
+  branches:
+    include:
+      - master
+  paths:
+    include:
+      - zip-and-publish-azure-storage
+
+resources:
+  repositories:
+    - repository: azuredevops-templates
+      type: github
+      name: "yardbirdsax/azuredevops-templates"
+      ref: "refs/heads/master"
+      endpoint: github.com_yardbirdsax
+
+pool:
+  vmImage: 'windows-2019'
+
+steps:
+  - template: zip-and-publish-azure-storage/zip-and-publish-azure-storage.yaml@azuredevops-templates
+    parameters:
+      sourcePath: zip-and-publish-azure-storage/examples/files
+      archiveFileName: $(Build.BuildNumber).zip
+      azureConnectionName: AzureSubscription
+      storageAccountName: jefazdevopstemplates
+      storageAccountContainerName: zip-and-publish-azure-storage
