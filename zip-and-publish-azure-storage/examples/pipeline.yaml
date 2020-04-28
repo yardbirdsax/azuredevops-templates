@@ -11,7 +11,7 @@ resources:
     - repository: azuredevops-templates
       type: github
       name: "yardbirdsax/azuredevops-templates"
-      ref: "refs/heads/master"
+      ref: "refs/tags/1.0"
       endpoint: github.com_yardbirdsax
 
 pool:
@@ -21,7 +21,7 @@ steps:
   - template: zip-and-publish-azure-storage/zip-and-publish-azure-storage.yaml@azuredevops-templates
     parameters:
       sourcePath: zip-and-publish-azure-storage/examples/files
-      archiveFileName: $(Build.BuildNumber).zip
+      archiveFileName: template-test.zip
       azureConnectionName: AzureSubscription
       storageAccountName: jefazdevopstemplates
       storageAccountContainerName: zip-and-publish-azure-storage
