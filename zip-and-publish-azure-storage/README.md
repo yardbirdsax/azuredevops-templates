@@ -1,5 +1,7 @@
 # Zip and Publish to Azure Storage
 
+[![Build Status](https://dev.azure.com/yardbirdsax/Azure%20DevOps%20Templates/_apis/build/status/zip-and-publish-azure-storage?branchName=master)](https://dev.azure.com/yardbirdsax/Azure%20DevOps%20Templates/_build/latest?definitionId=6&branchName=master)
+
 This task template zips files at a given path and then pushes the resulting ZIP file to a designated Azure Storage Account.
 
 ## Pre-Requisites
