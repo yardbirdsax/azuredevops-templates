@@ -11,7 +11,7 @@ resources:
     - repository: azuredevops-templates
       type: github
       name: "yardbirdsax/azuredevops-templates"
-      ref: "refs/heads/feature/zip-and-publish-azure-storage"
+      ref: "refs/heads/master"
       endpoint: github.com_yardbirdsax
 
 pool:
