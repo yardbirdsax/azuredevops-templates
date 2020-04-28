@@ -12,7 +12,7 @@ resources:
       type: github
       name: "yardbirdsax/azuredevops-templates"
       ref: "refs/heads/feature/zip-and-publish-azure-storage"
-      endpoint: github.com_yardbirdsax
+      # endpoint: github.com_yardbirdsax
 
 pool:
   vmImage: 'windows-2019'
