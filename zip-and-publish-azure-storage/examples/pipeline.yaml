@@ -18,7 +18,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-  - template: zip-and-publish-azure-storage/zip-and-publish-s3.yaml@azuredevops-templates
+  - template: zip-and-publish-azure-storage/zip-and-publish-azure-storage.yaml@azuredevops-templates
     parameters:
       sourcePath: zip-and-publish-azure-storage/examples/files
       archiveFileName: $(Build.BuildNumber).zip
