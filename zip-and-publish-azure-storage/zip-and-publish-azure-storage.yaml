@@ -23,7 +23,7 @@ steps:
   - task: AzureFileCopy@4
     displayName: 'Copy file to ${{ parameters.storageAccountName }} Blob Storage'
     inputs:
-      sourcePath: ${{ parameters.sourcePath }}
+      sourcePath: ${{ parameters.archiveFileName }}
       azureSubscription: ${{ parameters.azureConnectionName }}
       destination: azureBlob
       storage: ${{ parameters.storageAccountName }}
